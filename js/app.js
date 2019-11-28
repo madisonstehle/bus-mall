@@ -4,16 +4,21 @@ var picOne = document.getElementById('pic1');
 var picTwo = document.getElementById('pic2');
 var picThree = document.getElementById('pic3');
 
+var picContainer = document.getElementById('picBox');
+
 var picArray = [];
 
 function CreatePicture(src, name) {
     this.src = `../img/${src}.jpg`;
     this.alt = name;
     this.title = name;
+    this.views = 0;
+    this.clicks = 0;
 
     picArray.push(this);
 }
 
+// construct allllll the pics
 function loadImages() {
     new CreatePicture('bag', 'Bag');
     new CreatePicture('banana', 'Banana');
@@ -37,11 +42,12 @@ function loadImages() {
     new CreatePicture('wine-glass', 'Wine Glass');
 }
 
+// pick a random index
 function randomIndex(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
-
+// Make pics show up on page
 function renderPictures() {
     var index = randomIndex(picArray.length);
     
@@ -50,7 +56,9 @@ function renderPictures() {
     picOne.title = picArray[index].title;
     picOne.alt = picArray[index].alt;
     
-    picOne.textContent = picOne.title = picArray[index].title;
+    picArray[index].views++;
+
+    // picOne.textContent = picOne.title = picArray[index].title;
     
     // render secondPic
     var indexTwo = randomIndex(picArray.length);
@@ -63,7 +71,9 @@ function renderPictures() {
     picTwo.title = picArray[indexTwo].title;
     picTwo.alt = picArray[indexTwo].alt;
 
-    picTwo.textContent = picTwo.title = picArray[indexTwo].title
+    picArray[indexTwo].views++;
+
+    // picTwo.textContent = picTwo.title = picArray[indexTwo].title
 
     // render thirdPic
     var indexThree = randomIndex(picArray.length);
@@ -76,12 +86,21 @@ function renderPictures() {
     picThree.title = picArray[indexThree].title;
     picThree.alt = picArray[indexThree].alt;
 
-    picThree.textContent = picThree.title = picArray[indexThree].title;
+    picArray[indexThree].views++;
+
+    // picThree.textContent = picThree.title = picArray[indexThree].title;
 }
 
+function handleClick(event) {
+    var vote = event.target.title;
 
+    for (var i = 0; i < picArray.length; i++) {
+        picArray[i].clicks++;
+    }
+    renderPictures();
+}
 
 loadImages();
+picContainer.addEventListener('click', handleClick);
 renderPictures();
-// console.log(randomIndex(picArray.length));
 console.table(picArray);
