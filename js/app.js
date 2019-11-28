@@ -45,15 +45,19 @@ function randomIndex(max) {
 function renderPictures() {
     var index = randomIndex(picArray.length);
     
-    //firstPic
+    // render firstPic
     picOne.src = picArray[index].src;
     picOne.title = picArray[index].title;
     picOne.alt = picArray[index].alt;
     
     picOne.textContent = picOne.title = picArray[index].title;
-
-    //secondPic
+    
+    // render secondPic
     var indexTwo = randomIndex(picArray.length);
+    
+    while (indexTwo === index) {
+        indexTwo = randomIndex(picArray.length);
+    };
 
     picTwo.src = picArray[indexTwo].src;
     picTwo.title = picArray[indexTwo].title;
@@ -61,14 +65,18 @@ function renderPictures() {
 
     picTwo.textContent = picTwo.title = picArray[indexTwo].title
 
-    //thirdPic
+    // render thirdPic
     var indexThree = randomIndex(picArray.length);
+
+    while (indexThree === index || indexThree === indexTwo) {
+        indexThree = randomIndex(picArray.length);
+    };
 
     picThree.src = picArray[indexThree].src;
     picThree.title = picArray[indexThree].title;
     picThree.alt = picArray[indexThree].alt;
 
-    picThree.textContent = picThree.title = picArray[indexThree].title
+    picThree.textContent = picThree.title = picArray[indexThree].title;
 }
 
 
