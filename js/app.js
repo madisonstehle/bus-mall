@@ -58,7 +58,7 @@ function renderPictures() {
     
     picArray[index].views++;
 
-    // picOne.textContent = picOne.title = picArray[index].title;
+    picOne.textContent = picOne.title = picArray[index].title;
     
     // render secondPic
     var indexTwo = randomIndex(picArray.length);
@@ -73,7 +73,7 @@ function renderPictures() {
 
     picArray[indexTwo].views++;
 
-    // picTwo.textContent = picTwo.title = picArray[indexTwo].title
+    picTwo.textContent = picTwo.title = picArray[indexTwo].title
 
     // render thirdPic
     var indexThree = randomIndex(picArray.length);
@@ -88,19 +88,33 @@ function renderPictures() {
 
     picArray[indexThree].views++;
 
-    // picThree.textContent = picThree.title = picArray[indexThree].title;
+    picThree.textContent = picThree.title = picArray[indexThree].title;
 }
 
 function handleClick(event) {
+    event.preventDefault();
+
     var vote = event.target.title;
+    var clickCount = 0;
 
     for (var i = 0; i < picArray.length; i++) {
-        picArray[i].clicks++;
+        if (vote === picArray[i].title){
+            picArray[i].clicks++;
+        }
     }
+
     renderPictures();
+    clickCount++;
+    console.table(picArray);
+
+    if(clickCount === 25) {
+        picContainer.removeEventListener('click', handleClick);
+    }
+    return vote;
 }
 
 loadImages();
+
 picContainer.addEventListener('click', handleClick);
+
 renderPictures();
-console.table(picArray);
