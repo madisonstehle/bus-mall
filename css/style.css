@@ -1,7 +1,50 @@
-h1 {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* colors:  light tan (242, 235, 220) | tan (217, 198, 176) | dark tan (166, 126, 111) | burnt orange (217, 125, 72) | yellow (242, 209, 109)*/
+
+* {
+    text-align: center;
 }
 
-img {
+body, html {
+    width: 100%;
+    background-image: url(../img/closeup-photo-of-brown-brick-wall-1227511.jpg);
+}
+
+/* HEADER */
+header {
+    margin: 30px 0px;
+    min-width: 225px;
+    width: 20%;
+    background-color: rgba(242, 235, 220, 0.85);
+    float: left;
+}
+
+header>img {
+    margin: 10px;
     width: 25%;
+    float: left;
+}
+
+h1 {
+    text-align: left;
+    font-family: 'Kanit', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
+    font-size: 200%;
+    padding: 10px;
+    margin: 5% 0px;
+    float: left;
+}
+
+/* PIC BODY */
+#picBox {
+    background-color: rgba(242, 235, 220, 0.85);
+    float: left;
+}
+
+#picBox img {
+    margin: 10px;
+    padding: 2px;
+    width: 25%;
+    border: rgb(166, 126, 111) 2px solid;
+    border-radius: 10px;
+    max-height: 25%;
 }
