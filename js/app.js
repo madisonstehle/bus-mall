@@ -91,6 +91,7 @@ function renderPictures() {
     picThree.textContent = picThree.title = picArray[indexThree].title;
 }
 
+// Handle pic clicks
 function handleClick(event) {
     event.preventDefault();
 
