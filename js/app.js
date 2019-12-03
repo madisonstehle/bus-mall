@@ -91,6 +91,24 @@ function renderPictures() {
     picThree.textContent = picThree.title = picArray[indexThree].title;
 }
 
+// ANOTHER WAY TO RENDER
+// var picArrayContainers = photoOne, photoTwo, photoThree
+// function picSelect(){
+//  var currentImages = [];
+//
+//  for (var i = 0; i < picArrayContainers.length; i++) {
+//      var currentRandomIndex = randomIndex(picArray.length);
+//          while (currentImages.includes(currentRandomIndex)) {
+//          currentRandomIndex = randomIndex(picArray.length);
+//          }
+//      currentImages.push(currentRandomIndex);
+//      picArrayContainers[i].src = picArray[currentRandomIndex].src;
+//      picArrayContainers[i].title = picArray[currentRandomIndex].title;
+//      picArrayContainers[i].alt = picArray[currentRandomIndex].alt;
+//      picArray[currentRandomIndex].views++;
+//  }
+// }
+
 // Handle pic clicks
 function handleClick(event) {
     event.preventDefault();
@@ -108,11 +126,43 @@ function handleClick(event) {
     clickCount++;
     console.table(picArray);
 
+    // A WAY TO DO THINGS
+    // if (clickCount !== 0) {
+
+    // }
+
+    // else {
+    //  picContainer.removeEventListener('click', handleClick);
+    //  displayResults();
+    //  hide(picContainer);
+    // }
+
     if(clickCount === 25) {
         picContainer.removeEventListener('click', handleClick);
     }
     return vote;
 }
+
+// SHOW HIDE FUNCTIONS
+// function show(elem) {
+//  elem.style.display
+// }
+
+// function hide(elem){
+// 
+// }
+
+// DISPLAY RESULTS 
+// function displayResults(){
+//      var resultList = document.getElementById('resultList');
+//      var ulEl = document.createElement('ul');
+//      for(var i = 0; 0 < picArray.length; i++) {
+//          var liEl = document.createElement('li');
+//          liEl.textContent = `${picArray[i].title} had ${picArray[i].clicks} clicks & ${picArray[i].views} views.`;
+//          ulEl.appendChild(liEl);
+//      }
+//      resultList.appendChild(ulEl);
+// }
 
 loadImages();
 
