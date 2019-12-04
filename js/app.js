@@ -6,14 +6,17 @@ var picThree = document.getElementById('pic3');
 
 var picContainer = document.getElementById('picBox');
 var resultList = document.getElementById('resultList');
+var chartBox = document.getElementById('chartBox');
 
 var clickCount = 0;
 var picArray = [];
 
 var clickArray = [];
 var viewsArray = [];
+var titleArray = [];
 
-hide(resultList);
+// hide(resultList);
+hide(chartBox);
 
 function CreatePicture(src, name) {
     this.src = `../img/${src}.jpg`;
@@ -27,24 +30,24 @@ function CreatePicture(src, name) {
 
 // construct allllll the pics
 function loadImages() {
-    new CreatePicture('bag', 'Bag');
-    new CreatePicture('banana', 'Banana');
-    new CreatePicture('bathroom', 'bathroom');
+    new CreatePicture('bag', 'Star Wars Themed Rolly Bag');
+    new CreatePicture('banana', 'Banana Cutter');
+    new CreatePicture('bathroom', 'Bathroom IPod Stand');
     new CreatePicture('boots', 'Boots');
-    new CreatePicture('breakfast', 'Breakfast');
-    new CreatePicture('bubblegum', 'Bubblegum');
-    new CreatePicture('chair', 'Chair');
+    new CreatePicture('breakfast', 'All-in-One Breakfast');
+    new CreatePicture('bubblegum', 'Meatball Bubblegum');
+    new CreatePicture('chair', 'NonErgonomic Chair');
     new CreatePicture('cthulhu', 'Cthulhu');
-    new CreatePicture('dog-duck', 'Dog-Duck');
-    new CreatePicture('dragon', 'Dragon');
-    new CreatePicture('pen', 'Pen');
-    new CreatePicture('pet-sweep', 'Pet-Sweep');
-    new CreatePicture('scissors', 'Scissors');
-    new CreatePicture('shark', 'Shark');
-    new CreatePicture('sweep', 'Sweep');
-    new CreatePicture('tauntaun', 'Tauntaun');
-    new CreatePicture('unicorn', 'Unicorn');
-    new CreatePicture('usb', 'USB');
+    new CreatePicture('dog-duck', 'Duck Lips for Dogs');
+    new CreatePicture('dragon', 'Dragon Meat');
+    new CreatePicture('pen', 'Utensil Pen');
+    new CreatePicture('pet-sweep', 'Pet Sweeper Shoes');
+    new CreatePicture('scissors', 'Pizza Scissors');
+    new CreatePicture('shark', 'Personal-Size Shark');
+    new CreatePicture('sweep', 'Baby Sweeper Onesie');
+    new CreatePicture('tauntaun', 'Tauntaun Sleeping Bag');
+    new CreatePicture('unicorn', 'Unicorn Meat');
+    new CreatePicture('usb', 'Tentacle USB Drive');
     new CreatePicture('water-can', 'Watering Can');
     new CreatePicture('wine-glass', 'Wine Glass');
 }
@@ -125,7 +128,7 @@ function makeChart() {
     var resultChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: titleArray,
         datasets: [{
             label: 'Number of Times Clicked',
             data: clickArray,
@@ -135,7 +138,26 @@ function makeChart() {
                 'rgba(255, 206, 86, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
                 'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
             ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
@@ -146,6 +168,36 @@ function makeChart() {
                 'rgba(255, 159, 64, 1)'
             ],
             borderWidth: 1
+        }, {
+            label: 'Number of Times Viewed',
+            data: viewsArray,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+            ],
         }]
     },
     options: {
@@ -182,6 +234,7 @@ function handleClick(event) {
         hide(picContainer);
         // show(resultList);
         createDataArrays(picArray);
+        show(chartBox);
         makeChart();
     }
     return vote;
@@ -192,6 +245,7 @@ function createDataArrays(array) {
     for (var i = 0 ; i < picArray.length ; i++) {
         clickArray.push(array[i].clicks);
         viewsArray.push(array[i].views);
+        titleArray.push(array[i].title);
     }
 }
 

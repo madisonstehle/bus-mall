@@ -6,7 +6,7 @@
 
 body, html {
     width: 100%;
-    /* background-image: url(../img/closeup-photo-of-brown-brick-wall-1227511.jpg); */
+    background-image: url(../img/closeup-photo-of-brown-brick-wall-1227511.jpg);
 }
 
 /* HEADER */
@@ -61,4 +61,12 @@ h1 {
     font-size: 150%;
     margin: 5% 0;
     text-align: left;
+}
+
+/* Chart */
+#chartBox {
+    background-color: rgba(242, 235, 220, .9);
+    width: 100%;
+    margin: auto;
+    float: left;
 }
