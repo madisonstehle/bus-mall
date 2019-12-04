@@ -62,3 +62,11 @@ h1 {
     margin: 5% 0;
     text-align: left;
 }
+
+/* Chart */
+#chartBox {
+    background-color: rgba(242, 235, 220, .9);
+    width: 100%;
+    margin: auto;
+    float: left;
+}
