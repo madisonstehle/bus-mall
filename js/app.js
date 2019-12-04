@@ -10,6 +10,9 @@ var resultList = document.getElementById('resultList');
 var clickCount = 0;
 var picArray = [];
 
+var clickArray = [];
+var viewsArray = [];
+
 hide(resultList);
 
 function CreatePicture(src, name) {
@@ -95,7 +98,7 @@ function renderPictures() {
     picThree.textContent = picThree.title = picArray[indexThree].title;
 }
 
-// SHOW HIDE FUNCTIONS
+// SHOW/HIDE FUNCTIONS
 function show(elem) {
  elem.style.display = 'block';
 }
@@ -104,17 +107,58 @@ function hide(elem){
  elem.style.display = 'none';
 }
 
-// DISPLAY RESULTS 
-function displayResults() {
-    console.log('I am here!');
-     var ulEl = document.createElement('ul');
-     for(var i = 0; i < picArray.length; i++) {
-         var liEl = document.createElement('li');
-         liEl.textContent = `${picArray[i].title}: ${picArray[i].clicks} clicks & ${picArray[i].views} views.`;
-         ulEl.appendChild(liEl);
-     }
-     resultList.appendChild(ulEl);
-};
+// DISPLAY RESULTS FUNCTION
+// function displayResults() {
+//     console.log('I am here!');
+//      var ulEl = document.createElement('ul');
+//      for(var i = 0; i < picArray.length; i++) {
+//          var liEl = document.createElement('li');
+//          liEl.textContent = `${picArray[i].title}: ${picArray[i].clicks} clicks & ${picArray[i].views} views.`;
+//          ulEl.appendChild(liEl);
+//      }
+//      resultList.appendChild(ulEl);
+// };
+
+// MAKE CHART
+function makeChart() {
+    var ctx = document.getElementById('resultChart').getContext('2d');
+    var resultChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: 'Number of Times Clicked',
+            data: clickArray,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+}
 
 // Handle pic clicks
 function handleClick(event) {
@@ -134,11 +178,21 @@ function handleClick(event) {
 
     if (clickCount === 25) {
         picContainer.removeEventListener('click', handleClick);
-        displayResults();
+        // displayResults();
         hide(picContainer);
-        show(resultList);
+        // show(resultList);
+        createDataArrays(picArray);
+        makeChart();
     }
     return vote;
+}
+
+// Create Data Arrays
+function createDataArrays(array) {
+    for (var i = 0 ; i < picArray.length ; i++) {
+        clickArray.push(array[i].clicks);
+        viewsArray.push(array[i].views);
+    }
 }
 
 
