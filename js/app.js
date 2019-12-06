@@ -34,26 +34,33 @@ function CreatePicture(src, name) {
 
 // construct allllll the pics
 function loadImages() {
-  new CreatePicture('bag', 'Star Wars Themed Rolly Bag');
-  new CreatePicture('banana', 'Banana Cutter');
-  new CreatePicture('bathroom', 'Bathroom IPod Stand');
-  new CreatePicture('boots', 'Boots');
-  new CreatePicture('breakfast', 'All-in-One Breakfast');
-  new CreatePicture('bubblegum', 'Meatball Bubblegum');
-  new CreatePicture('chair', 'NonErgonomic Chair');
-  new CreatePicture('cthulhu', 'Cthulhu');
-  new CreatePicture('dog-duck', 'Duck Lips for Dogs');
-  new CreatePicture('dragon', 'Dragon Meat');
-  new CreatePicture('pen', 'Utensil Pen');
-  new CreatePicture('pet-sweep', 'Pet Sweeper Shoes');
-  new CreatePicture('scissors', 'Pizza Scissors');
-  new CreatePicture('shark', 'Personal-Size Shark');
-  new CreatePicture('sweep', 'Baby Sweeper Onesie');
-  new CreatePicture('tauntaun', 'Tauntaun Sleeping Bag');
-  new CreatePicture('unicorn', 'Unicorn Meat');
-  new CreatePicture('usb', 'Tentacle USB Drive');
-  new CreatePicture('water-can', 'Watering Can');
-  new CreatePicture('wine-glass', 'Wine Glass');
+  var getPics = localStorage.getItem('picData');
+  var parsedPics = JSON.parse(getPics);
+  
+  if (parsedPics.length > 0) {
+    picArray = parsedPics;
+  } else {
+    new CreatePicture('bag', 'Star Wars Themed Rolly Bag');
+    new CreatePicture('banana', 'Banana Cutter');
+    new CreatePicture('bathroom', 'Bathroom IPod Stand');
+    new CreatePicture('boots', 'Boots');
+    new CreatePicture('breakfast', 'All-in-One Breakfast');
+    new CreatePicture('bubblegum', 'Meatball Bubblegum');
+    new CreatePicture('chair', 'NonErgonomic Chair');
+    new CreatePicture('cthulhu', 'Cthulhu');
+    new CreatePicture('dog-duck', 'Duck Lips for Dogs');
+    new CreatePicture('dragon', 'Dragon Meat');
+    new CreatePicture('pen', 'Utensil Pen');
+    new CreatePicture('pet-sweep', 'Pet Sweeper Shoes');
+    new CreatePicture('scissors', 'Pizza Scissors');
+    new CreatePicture('shark', 'Personal-Size Shark');
+    new CreatePicture('sweep', 'Baby Sweeper Onesie');
+    new CreatePicture('tauntaun', 'Tauntaun Sleeping Bag');
+    new CreatePicture('unicorn', 'Unicorn Meat');
+    new CreatePicture('usb', 'Tentacle USB Drive');
+    new CreatePicture('water-can', 'Watering Can');
+    new CreatePicture('wine-glass', 'Wine Glass');
+  }
 }
 
 // pick a random index
@@ -223,6 +230,7 @@ function handleClick(event) {
     hide(picContainer);
     // show(resultList);
     createDataArrays(picArray);
+    localStorage.setItem('picData', JSON.stringify(picArray));
     show(chartBox);
     makeChart();
   }
