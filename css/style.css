@@ -65,7 +65,7 @@ h1 {
 
 /* Chart */
 #chartBox {
-    background-color: rgba(242, 235, 220, .9);
+    background-color: rgba(242, 235, 220, 0.9);
     width: 100%;
     margin: auto;
     float: left;
