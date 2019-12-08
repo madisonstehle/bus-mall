@@ -18,6 +18,8 @@ var titleArray = [];
 var appearingPics = [picOne, picTwo, picThree];
 var uniquePics = [];
 
+var parsedPics = [];
+
 // hide(resultList);
 hide(chartBox);
 
