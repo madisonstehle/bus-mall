@@ -37,7 +37,7 @@ function CreatePicture(src, name) {
 // construct allllll the pics
 function loadImages() {
   var getPics = localStorage.getItem('picData');
-  var parsedPics = JSON.parse(getPics);
+  parsedPics = JSON.parse(getPics);
   
   if (parsedPics.length > 0) {
     picArray = parsedPics;
