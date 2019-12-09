@@ -5,7 +5,6 @@ var picTwo = document.getElementById('pic2');
 var picThree = document.getElementById('pic3');
 
 var picContainer = document.getElementById('picBox');
-var resultList = document.getElementById('resultList');
 var chartBox = document.getElementById('chartBox');
 
 var clickCount = 0;
@@ -18,6 +17,7 @@ var titleArray = [];
 var appearingPics = [picOne, picTwo, picThree];
 var uniquePics = [];
 
+// variable for retrieving from local storage
 var parsedPics = [];
 
 // hide(resultList);
@@ -80,12 +80,13 @@ function fetchUniqueSix() {
     }
   }
 }
+
 // Remove front three images
 function removeFrontThree() {
   for (var i = 0 ; i < 3 ; i++) {
     uniquePics.shift();
   }
-};
+}
 
 // Make pics show up on page
 function renderPictures() {
@@ -109,18 +110,6 @@ function show(elem) {
 function hide(elem){
   elem.style.display = 'none';
 }
-
-// DISPLAY RESULTS FUNCTION
-function displayResults() {
-  console.log('I am here!');
-  var ulEl = document.createElement('ul');
-  for(var i = 0; i < picArray.length; i++) {
-    var liEl = document.createElement('li');
-    liEl.textContent = `${picArray[i].title}: ${picArray[i].clicks} clicks & ${picArray[i].views} views.`;
-    ulEl.appendChild(liEl);
-  }
-  resultList.appendChild(ulEl);
-};
 
 // MAKE CHART
 function makeChart() {
